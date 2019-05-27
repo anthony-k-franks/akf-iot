@@ -9,8 +9,11 @@ wss.on('connection', function connection(ws) {
       if(message === "connected##") {
         ws.send("ack##");
       }
+      else if(  message === "buttonClicked##") {
+        ws.send("clickReceived##");
+      }
       else {
-          ws.send('what##');
+          ws.send("what##");
       }
   });
 

@@ -4,7 +4,7 @@ const WebSocket = require('ws')
 const connection = new WebSocket(url)
 
 connection.onopen = () => {
-  connection.send('connected##') 
+  connection.send("connected##") 
 }
 
 connection.onerror = (error) => {
@@ -16,7 +16,14 @@ connection.onmessage = (e) => {
     if(e.data === "ack##") {
         console.log("Connection Acknowledged!")
     }
+    else if(e.data === "clickReceived##") {
+        console.log("Click was received!");
+    }
     else if(e.data === "what##") {
         console.log("Unknown Message Sent From Client"); 
     }
+}
+
+function sendMessage() {
+    connection.send('buttonClicked##');
 }
