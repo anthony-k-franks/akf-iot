@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/anthony-k-franks/akf-iot/issues"
   },
-  "homepage": "https://github.com/anthony-k-franks/akf-iot#readme"
+  "homepage": "https://github.com/anthony-k-franks/akf-iot#readme",
+  "dependencies": {
+    "ws": "^7.0.0"
+  }
 }
