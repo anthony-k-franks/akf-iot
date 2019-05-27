@@ -1,5 +1,5 @@
 //const url = 'ws://localhost:8080'
-const url = 'ws://akf-iot.herokuapp.com:8080'
+const url = 'ws://akf-iot.herokuapp.com:80'
 const WebSocket = require('ws')
 const connection = new WebSocket(url)
 
