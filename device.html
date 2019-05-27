@@ -13,6 +13,10 @@
             const url = 'ws://akf-iot.herokuapp.com:80'
             const deviceConn = new WebSocket(url)
 
+            var greenToggle = 0;
+            var yellowToggle = 0;
+            var redToggle = 0;
+
              deviceConn.onopen = () => {
                 deviceConn.send("deviceConnected##") 
             }
@@ -28,18 +32,48 @@
                 }
                 else if(e.data === "greenRcvd##") {
                     //console.log("Green Toggled!");
-                    document.getElementById("ledGreen").innerHTML = "on";
-                    document.getElementById("ledGreen").style.background ='#00DD00';
+                    if( greenToggle === 0)
+                    {
+                        greenToggle = 1;
+                        document.getElementById("ledGreen").innerHTML = "on";
+                        document.getElementById("ledGreen").style.background ='#00DD00';
+                    }
+                    if( greenToggle === 1)
+                    {
+                        greenToggle = 0;
+                        document.getElementById("ledGreen").innerHTML = "off";
+                        document.getElementById("ledGreen").style.background ='#DBDFDF';
+                    }
                 }
                 else if(e.data === "yellowRcvd##") {
                     //console.log("Yellow Toggled!");
-                    document.getElementById("ledYellow").innerHTML = "on";
-                    document.getElementById("ledYellow").style.background ='#EAF90F';
+                    if( yellowToggle === 0)
+                    {
+                        yellowToggle = 1;
+                        document.getElementById("ledYellow").innerHTML = "on";
+                        document.getElementById("ledYellow").style.background ='#EAF90F';
+                    }
+                    if( yellowToggle === 1)
+                    {
+                        yellowToggle = 0;
+                        document.getElementById("ledYellow").innerHTML = "off";
+                        document.getElementById("ledYellow").style.background ='#DBDFDF';
+                    }
                 }
                 else if(e.data === "redRcvd##") {
                     //console.log("Red Toggled!");
-                    document.getElementById("ledRed").innerHTML = "on";
-                    document.getElementById("ledRed").style.background ='#DD0000';
+                    if( redToggle === 0)
+                    {
+                        redToggle = 1;
+                        document.getElementById("ledRed").innerHTML = "on";
+                        document.getElementById("ledRed").style.background ='#DD0000';
+                    }
+                    if( redToggle === 1)
+                    {
+                        redToggle = 0;
+                        document.getElementById("ledRed").innerHTML = "off";
+                        document.getElementById("ledRed").style.background ='#DBDFDF';
+                    }
                 }
                 else if(e.data === "what##") {
                     console.log("Unknown Message Sent From Client"); 
