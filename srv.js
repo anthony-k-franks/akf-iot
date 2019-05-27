@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 
-var port = process.env.PORT || 3000;
-const wss = new WebSocket.Server( port );
+var prt = process.env.PORT || 3000;
+const wss = new WebSocket.Server( { port: prt } );
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
