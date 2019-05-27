@@ -1,6 +1,6 @@
 const express = require('express')
 const port = process.env.PORT || 3000
-const INDEX = '/index.html'
+const INDEX = '/app/index.html'
 
 const server = express()
   .use((req, res) => res.sendFile(INDEX) )
