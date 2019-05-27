@@ -22,8 +22,8 @@ wss.on('connection', function connection(ws) {
       else if(  message === "yellowClicked##") {
         ws.send("yellowRcvd##");
       }
-      else if(  message === "redRcvd##") {
-        ws.send("clickReceived##");
+      else if(  message === "redClicked##") {
+        ws.send("redRcvd##");
       }
       else {
           ws.send("what##");
