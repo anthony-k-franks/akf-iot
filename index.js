@@ -29,13 +29,13 @@ wss.on('connection', function connection(ws) {
         ws.send("deviceAck##");
       }
       else if(  message === "greenClicked##") {
-        wss.boadcast("greenRcvd##");
+        wss.broadcast("greenRcvd##");
       }
       else if(  message === "yellowClicked##") {
-        wss.boadcast("yellowRcvd##");
+        wss.broadcast("yellowRcvd##");
       }
       else if(  message === "redClicked##") {
-        wss.boadcast("redRcvd##");
+        wss.broadcast("redRcvd##");
       }
       else {
           ws.send("what##");
