@@ -10,24 +10,35 @@ const WebSocket = require('ws');
 
 const wss = new WebSocket.Server( { server } );
 
+// Broadcast to all.
+wss.broadcast = function broadcast(data) {
+  wss.clients.forEach(function each(client) {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(data);
+    }
+  });
+};
+
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
     console.log('received: %s', message);
       if(message === "connected##") {
         ws.send("ack##");
       }
+      else if(message === "deviceConnected##") {
+        ws.send("deviceAck##");
+      }
       else if(  message === "greenClicked##") {
-        ws.send("greenRcvd##");
+        wss.boadcast("greenRcvd##");
       }
       else if(  message === "yellowClicked##") {
-        ws.send("yellowRcvd##");
+        wss.boadcast("yellowRcvd##");
       }
       else if(  message === "redClicked##") {
-        ws.send("redRcvd##");
+        wss.boadcast("redRcvd##");
       }
       else {
           ws.send("what##");
       }
   });
-
 });

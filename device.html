@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>
+            Device - IOT Demo
+        </title>
+    </head>
+    <body>
+
+        <button style="background-color: #00DD00;border: none;text-align: center;font-size: 16px;border-radius: 8px;" ></button>
+        <button style="background-color: #EAF90F;border: none;text-align: center;font-size: 16px;border-radius: 8px;" ></button>
+        <button style="background-color: #DD0000;border: none;text-align: center;font-size: 16px;border-radius: 8px;" ></button>
+                <script type="application/javascript">
+            const url = 'ws://akf-iot.herokuapp.com:80'
+            const deviceConn = new WebSocket(url)
+
+             deviceConn.onopen = () => {
+                deviceConn.send("deviceConnected##") 
+            }
+
+            deviceConn.onerror = (error) => {
+                console.log(`WebSocket error: ${error}`)
+            }
+
+            deviceConn.onmessage = (e) => {
+                console.log(e.data)
+                if(e.data === "deviceAck##") {
+                    console.log("Device Connection Acknowledged!")
+                }
+                else if(e.data === "greenRcvd##") {
+                    console.log("Green Toggled!");
+                }
+                else if(e.data === "yellowRcvd##") {
+                    console.log("Yellow Toggled!");
+                }
+                else if(e.data === "redRcvd##") {
+                    console.log("Red Toggled!");
+                }
+                else if(e.data === "what##") {
+                    console.log("Unknown Message Sent From Client"); 
+                }
+            }
+
+       </script>
+
+    </body>
+</html>
