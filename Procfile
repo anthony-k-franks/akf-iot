@@ -1,1 +1,1 @@
-web: node srv.js
+web: node index.js
