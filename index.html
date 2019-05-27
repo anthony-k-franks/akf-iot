@@ -7,7 +7,6 @@
     <body>
         <script type="application/javascript">
             const url = 'ws://akf-iot.herokuapp.com:80'
-            const WebSocket = require('ws')
             const connection = new WebSocket(url)
 
             connection.onopen = () => {
