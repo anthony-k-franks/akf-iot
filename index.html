@@ -50,36 +50,6 @@
                 connection.send('redClicked##');
             }        
 
-            const url = 'ws://akf-iot.herokuapp.com:80'
-            const deviceConn = new WebSocket(url)
-
-             deviceConn.onopen = () => {
-                deviceConn.send("deviceConnected##") 
-            }
-
-            deviceConn.onerror = (error) => {
-                console.log(`WebSocket error: ${error}`)
-            }
-
-            deviceConn.onmessage = (e) => {
-                console.log(e.data)
-                if(e.data === "deviceAck##") {
-                    console.log("Device Connection Acknowledged!")
-                }
-                else if(e.data === "greenRcvd##") {
-                    console.log("Green Toggled!");
-                }
-                else if(e.data === "yellowRcvd##") {
-                    console.log("Yellow Toggled!");
-                }
-                else if(e.data === "redRcvd##") {
-                    console.log("Red Toggled!");
-                }
-                else if(e.data === "what##") {
-                    console.log("Unknown Message Sent From Client"); 
-                }
-            }
-
        </script>
 
     </body>
