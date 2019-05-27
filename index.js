@@ -1,14 +1,14 @@
 const express = require('express')
-const PORT = process.env.PORT || 3000
+const port = process.env.PORT || 3000
 const INDEX = './index.html'
 
 const server = express()
   .use((req, res) => res.sendFile(INDEX) )
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  .listen(port, () => console.log(`Listening on ${ port }`));
 
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server( { PORT } );
+const wss = new WebSocket.Server( { port } );
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
