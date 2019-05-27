@@ -28,18 +28,18 @@
                 }
                 else if(e.data === "greenRcvd##") {
                     //console.log("Green Toggled!");
-                    document.getElementById("ledGreen").value= "on";
-                    document.getElementById("ledGreen").style.background='#00DD00';
+                    document.getElementById("ledGreen").innerHTML = "on";
+                    document.getElementById("ledGreen").style.background ='#00DD00';
                 }
                 else if(e.data === "yellowRcvd##") {
                     //console.log("Yellow Toggled!");
-                    document.getElementById("ledYellow").value= "on";
-                    document.getElementById("ledYellow").style.background='#EAF90F';
+                    document.getElementById("ledYellow").innerHTML = "on";
+                    document.getElementById("ledYellow").style.background ='#EAF90F';
                 }
                 else if(e.data === "redRcvd##") {
                     //console.log("Red Toggled!");
-                    document.getElementById("ledRed").value= "on";
-                    document.getElementById("ledRed").style.background='#DD0000';
+                    document.getElementById("ledRed").innerHTML = "on";
+                    document.getElementById("ledRed").style.background ='#DD0000';
                 }
                 else if(e.data === "what##") {
                     console.log("Unknown Message Sent From Client"); 
